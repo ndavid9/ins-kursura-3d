@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#102029" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23102029' width='32' height='32'/%3E%3Cpath fill='%23e6d3a4' d='M2 18h28c0 3-4 6-14 6S2 21 2 18z'/%3E%3Crect fill='%23d7dde2' x='14' y='8' width='4' height='8'/%3E%3C/svg%3E" />
+    <title>INS Kursura (S20) — RK Beach submarine museum</title>
+    <meta
+      name="description"
+      content="An explorable 3D reconstruction of INS Kursura (S20), the Project 641 Foxtrot-class submarine museum on RK Beach, Visakhapatnam."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,560;7..72,700&family=Outfit:wght@380;520;680&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="view" tabindex="0" aria-label="3D view of INS Kursura"></canvas>
+
+      <div id="loading" role="status" aria-live="polite">
+        <div class="load-card">
+          <div class="load-mark" aria-hidden="true">
+            <span class="load-hull"></span>
+            <span class="load-sail"></span>
+          </div>
+          <p class="kicker">Ramakrishna Beach · Visakhapatnam</p>
+          <h1>INS Kursura</h1>
+          <p class="load-sub">S20 · Project 641 · Foxtrot class</p>
+          <div class="bar" aria-hidden="true"><span id="load-bar"></span></div>
+          <p id="load-status">Reading the lines…</p>
+        </div>
+      </div>
+
+      <header id="top">
+        <div class="brand">
+          <p class="kicker">VMRDA submarine museum · RK Beach</p>
+          <h1>INS Kursura <span>S20</span></h1>
+        </div>
+        <div class="top-actions">
+          <button id="btn-about" type="button">About &amp; sources</button>
+          <button id="btn-mode" type="button">Board at the bow</button>
+        </div>
+      </header>
+
+      <section id="banner" aria-live="polite">
+        <p class="kicker" id="banner-kicker">On the plaza</p>
+        <h2 id="banner-title">Kursura on her plinth</h2>
+        <p id="banner-body">91.3 m overall · beam 8 m on the museum board · height 11.92 m</p>
+      </section>
+
+      <article id="card" hidden>
+        <header>
+          <p class="kicker" id="card-kicker">Plaque</p>
+          <button id="card-close" type="button" aria-label="Close plaque">Close</button>
+        </header>
+        <h3 id="card-title"></h3>
+        <p id="card-body"></p>
+      </article>
+
+      <nav id="map" aria-label="Compartments, bow to stern"></nav>
+
+      <p id="hint"></p>
+
+      <div id="joy" aria-hidden="true"><div id="joy-knob"></div></div>
+
+      <dialog id="about">
+        <form method="dialog">
+          <header class="about-head">
+            <div>
+              <p class="kicker">A reconstruction, not the official museum site</p>
+              <h2>About INS Kursura</h2>
+            </div>
+            <button value="close" class="texty" type="submit">Close</button>
+          </header>
+          <div id="about-body"></div>
+        </form>
+      </dialog>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
