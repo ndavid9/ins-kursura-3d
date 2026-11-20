@@ -193,7 +193,7 @@ export const HOTSPOTS = [
     y: 1.35,
     z: 0.35,
     title: 'Three 2,000 hp diesels',
-    body: 'Russian project data name three Kolomna 37D diesels, 2,000 hp each at 500 rpm. Visitor photographs inside Kursura have been captioned as type 2D42M, which is the name used in many Western and Indian write-ups. Either way the museum room is three big engines abreast. They drove the boat on the surface and charged the batteries through the snorkel.',
+    body: 'Russian project data name three Kolomna 37D diesels, 2,000 hp each at 500 rpm. Visitor photographs inside Kursura have been captioned as type 2D42M. Each is drawn here as an inline six — the usual 37D arrangement — with rocker covers, an exhaust manifold and a gauge board, the shape taken from preserved Foxtrot engine rooms (B-413, B-427, B-39) rather than from a machinery drawing of S20.',
   },
   {
     id: 'motors',
@@ -212,6 +212,33 @@ export const HOTSPOTS = [
     z: 0,
     title: 'Four stern tubes',
     body: 'Tubes 7 to 10 face aft. With the bow salvo they gave a Foxtrot a weapon at either end of a convoy fight. The after room was also a living space: bunks line the hull, and an ISP-60 escape suit is displayed as it is in the museum.',
+  },
+  {
+    id: 'hoist',
+    c: 'c1',
+    x: 17.4,
+    y: 1.7,
+    z: 0,
+    title: 'Loading rail',
+    body: 'A beam and chain hoist ran over the reload racks. On the Project 641 boats a veteran describes, six quick-loading motors with drums sat on the after bulkhead of this compartment, one for each tube. The museum path is the narrow gap between the racks.',
+  },
+  {
+    id: 'manifold',
+    c: 'c3',
+    x: 35.0,
+    y: 1.15,
+    z: 0.55,
+    title: 'Ballast and HP-air manifold',
+    body: 'The central post is a bank of handwheels. High-pressure air — 54 bottles at 200 kg/cm² on the Kursura board — blows the main ballast tanks; urgent dive was timed at about 45–60 seconds. Red and green wheels follow the cream-and-red machinery in Kursura photographs and in preserved Foxtrots. This is not a valve-by-valve survey of S20.',
+  },
+  {
+    id: 'switchboard',
+    c: 'c6',
+    x: 66.6,
+    y: 1.2,
+    z: 0.55,
+    title: 'Propulsion switchboard',
+    body: 'Knife switches and gauge clusters fed the PG-102 centre motor (2,700 hp) and the two PG-101 wing motors (1,350 hp each). The same cream cabinets, coloured bezels and cable looms show up in Foxtrot museum boats, including the motor controls photographed aboard preserved sisters.',
   },
   {
     id: 'escape',
@@ -288,7 +315,22 @@ export const SOURCES = [
   {
     title: 'Wikimedia Commons — INS Kursura (S20)',
     url: 'https://commons.wikimedia.org/wiki/Category:INS_Kursura_(S20)',
-    note: 'Exterior and interior photographs used as the visual reference for the bow cutaway, stern gear, sail, and cream-painted compartments.',
+    note: 'Exterior and interior photographs: cream machinery, red handwheels, cable runs, circular hatches, wardroom and bunks.',
+  },
+  {
+    title: 'Wikipedia — Foxtrot-class interior photographs',
+    url: 'https://en.wikipedia.org/wiki/Foxtrot-class_submarine',
+    note: 'Aft torpedo room, opened tube, and electric-motor control cabinets on a preserved Foxtrot (photographs by Mario52).',
+  },
+  {
+    title: 'Museum of the World Ocean — B-413, Kaliningrad',
+    url: 'https://world-ocean.ru/voenno-morskoj-tsentr',
+    note: 'Project 641 preserved with hull, machinery, instruments and weapons. Culture.ru’s note of the same boat confirms compartment 2 (CO cabin, wardroom), 4 (galley) and 7 (enlisted bunks and escape gear): https://www.culture.ru/institutes/12264/podvodnaya-lodka-b-413',
+  },
+  {
+    title: 'USS Drum association — preserved Foxtrot notes',
+    url: 'https://www.ussdrum.org/foxtrot-1.html',
+    note: 'Class fit used for B-39 (San Diego) and the same three-shaft, six-blade, ten-tube layout.',
   },
 ];
 
@@ -305,7 +347,7 @@ export function approximationNotes() {
     'Overall length 91.3 m, the museum board’s maximum diameter of 8 m and height of 11.92 m, and a 6 m draught are used as hard numbers. Published beam is 7.4–7.5 m at the waterline and 8 m as the board’s “maximum diameter”; the outer hull here is 8 m across.',
     'No full lines plan was available to trace. The sheer, the snowman bow (upper stem plus the sonar dome), the sail over the control room, folding-style bow planes shown extended as on the plaza, the cruciform stern, and three six-bladed propellers are reconstructed from photographs and from Project 641 descriptions. Station offsets are estimates.',
     'The pressure hull is the published 70.1 m. Compartment lengths are apportioned to that length in the standard 1-to-7 order. They are not measured off S20’s own general arrangement.',
-    'Interiors are recognisable, not a surveyed fit. Tube count and arrangement, the two battery wells, two periscopes, three diesels, three motors, four stern tubes, the tiny galley, and the berths follow the sources. Pipe runs, exact console shapes, and the floral wallpaper are simplified from museum photographs.',
+    'Interiors are recognisable, not a surveyed fit. Tube count and arrangement, the two battery wells, two periscopes, three diesels, three motors, four stern tubes, the tiny galley, and the berths follow the sources. Pipe runs, valve banks and cable trays are dense on purpose: Kursura’s own photographs and preserved Foxtrots (B-413 in Kaliningrad, B-427, B-39, U-475) show machinery buried in pipes. Colours are a simplified code — red firemain and many handwheels, green seawater, yellow fuel, blue fresh water or air, cream ventilation — not a valve list from S20. Each diesel is an inline six with rocker covers and an exhaust manifold, the published 37D form, not a measured engine.',
     'The bow is shown as the museum displays it: outer plating cut away and the six muzzle doors removed, lower bow and upper nose painted light. At sea the hull was black and the underwater body was anti-fouled, not white.',
     'The plaza, wave wall, and sign follow the present landscaping. The hull’s compass heading on Beach Road is not surveyed here: sea on one side, Beach Road on the other, and a headland standing in for Dolphin’s Nose.',
   ];

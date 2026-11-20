@@ -25,6 +25,54 @@ const panel = canvasTex((g, w, h) => {
   }
 }, 128, 128, [1, 1]);
 
+function dial(g, w, h, label, unit, t) {
+  g.fillStyle = '#f4efe4';
+  g.fillRect(0, 0, w, h);
+  g.strokeStyle = '#1c1c1c';
+  g.lineWidth = 7;
+  g.beginPath();
+  g.arc(w / 2, h / 2, 52, 0, Math.PI * 2);
+  g.stroke();
+  g.fillStyle = '#1c1c1c';
+  g.font = '700 18px sans-serif';
+  g.textAlign = 'center';
+  g.fillText(label, w / 2, 78);
+  g.font = '600 14px sans-serif';
+  g.fillText(unit, w / 2, 96);
+  g.strokeStyle = '#b42318';
+  g.lineWidth = 3;
+  const a = -2.4 + t * 2.6;
+  g.beginPath();
+  g.moveTo(w / 2, h / 2);
+  g.lineTo(w / 2 + Math.cos(a) * 36, h / 2 + Math.sin(a) * 36);
+  g.stroke();
+  g.fillStyle = '#222';
+  g.beginPath();
+  g.arc(w / 2, h / 2, 4, 0, Math.PI * 2);
+  g.fill();
+}
+
+function plateMat(top, bottom) {
+  return std({
+    map: canvasTex((g, w, h) => {
+      g.fillStyle = '#efe8da';
+      g.fillRect(0, 0, w, h);
+      g.strokeStyle = '#2a2a2a';
+      g.lineWidth = 6;
+      g.strokeRect(6, 6, w - 12, h - 12);
+      g.fillStyle = '#1a1a1a';
+      g.font = '700 36px sans-serif';
+      g.textAlign = 'center';
+      g.textBaseline = 'middle';
+      g.fillText(top, w / 2, h * 0.4);
+      g.font = '600 22px sans-serif';
+      g.fillText(bottom, w / 2, h * 0.68);
+    }, 256, 128),
+    roughness: 0.62,
+    metalness: 0.05,
+  });
+}
+
 export const mats = {
   hull: std({
     color: 0xffffff,
@@ -38,6 +86,10 @@ export const mats = {
   creamDark: std({ color: 0xb7b1a4, roughness: 0.8, metalness: 0.05 }),
   white: std({ color: 0xe7e1d6, roughness: 0.7 }),
   red: std({ color: 0xb42318, roughness: 0.45, metalness: 0.15 }),
+  pipeGreen: std({ color: 0x2c6b45, roughness: 0.48, metalness: 0.22 }),
+  pipeYellow: std({ color: 0xc6a23a, roughness: 0.5, metalness: 0.18 }),
+  pipeBlue: std({ color: 0x3d6f99, roughness: 0.46, metalness: 0.2 }),
+  pipeCream: std({ color: 0xd5cec0, roughness: 0.55, metalness: 0.12 }),
   brass: std({ color: 0xb08a45, roughness: 0.38, metalness: 0.72 }),
   steel: std({ color: 0x8d949a, roughness: 0.35, metalness: 0.75 }),
   dark: std({ color: 0x2a2e32, roughness: 0.55, metalness: 0.4 }),
@@ -157,6 +209,27 @@ export const mats = {
     }, 256, 256, [2, 2]),
     roughness: 0.92,
   }),
+  gaugeDepth: std({
+    map: canvasTex((g, w, h) => dial(g, w, h, 'ГЛУБ', 'm', 0.62), 128, 128),
+    roughness: 0.4,
+    metalness: 0.1,
+  }),
+  gaugePress: std({
+    map: canvasTex((g, w, h) => dial(g, w, h, 'ВВД', 'кг', 0.4), 128, 128),
+    roughness: 0.4,
+    metalness: 0.1,
+  }),
+  gaugeElec: std({
+    map: canvasTex((g, w, h) => dial(g, w, h, 'А', 'V', 0.55), 128, 128),
+    roughness: 0.4,
+    metalness: 0.1,
+  }),
+  plateAir: plateMat('ВВД', 'HP AIR'),
+  plateFuel: plateMat('ТОПЛИВО', 'FUEL'),
+  plateSea: plateMat('ЗАБОРТ.', 'SEA'),
+  plateBallast: plateMat('БАЛЛАСТ', 'BALLAST'),
+  plateWarn: plateMat('НЕ ТРОГАТЬ', 'DO NOT TOUCH'),
+  plateDiesel: plateMat('37Д  2000', '2D42M'),
   gauge: std({
     map: canvasTex((g, w, h) => {
       g.fillStyle = '#f6f1e6';

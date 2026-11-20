@@ -8,6 +8,8 @@ import {
 } from './specs.js';
 import { mats, markerMaterial } from './materials.js';
 import { box, cyl, sphere, tube, flush } from './factory.js';
+import { fitOut } from './fitout.js';
+import { flushKit } from './kit.js';
 
 const D = DECK_Y;
 
@@ -46,11 +48,11 @@ export function createInterior() {
   officers();
   control();
   crew();
-  diesels();
-  motors();
   stern();
   figures(root);
+  fitOut();
   flush(root, { shadow: false });
+  flushKit(root);
 
   const markers = new THREE.Group();
   markers.name = 'markers';
@@ -285,43 +287,6 @@ function crew() {
       box(mats.brass, 0.04, 0.16, 0.14, 47.55, D + y + 0.1, -1.7 + i * 0.26);
     }
   }
-}
-
-function diesels() {
-  const blocks = [
-    [58.0, -1.35],
-    [59.3, -0.32],
-    [58.0, 1.22],
-  ];
-  blocks.forEach(([x, z], idx) => {
-    box(mats.cream, 4.6, 1.15, 0.95, x, D + 0.7, z);
-    box(mats.creamDark, 4.2, 0.28, 0.8, x, D + 1.35, z);
-    for (let i = 0; i < 6; i++) {
-      box(mats.red, 0.38, 0.16, 0.5, x - 1.6 + i * 0.62, D + 1.55, z);
-    }
-    tube(mats.dark, 0.06, 4.2, x, D + 1.15, z + (z > 0 ? -0.35 : 0.35), 'x');
-    if (idx === 1) {
-      box(mats.red, 0.55, 0.35, 0.7, x - 2.3, D + 1.15, z);
-    }
-  });
-  box(mats.steel, 3.2, 0.04, 0.55, 60.5, D + 0.08, 0.72);
-  box(mats.cream, 0.7, 0.9, 0.35, 63.6, D + 0.7, 0.85);
-}
-
-function motors() {
-  box(mats.cream, 2.4, 1.2, 0.95, 68.4, D + 0.72, -0.55);
-  box(mats.creamDark, 1.8, 0.85, 0.72, 68.2, D + 0.58, -1.35);
-  box(mats.creamDark, 1.8, 0.85, 0.72, 68.2, D + 0.58, 1.22);
-  box(mats.dark, 0.7, 0.4, 0.4, 70.4, D + 0.38, 0.15);
-  cyl(mats.steel, 0.09, 0.09, 3.2, 71.0, D + 0.4, -1.35, 0, 0, Math.PI / 2, 8);
-  cyl(mats.steel, 0.09, 0.09, 3.2, 71.0, D + 0.4, 1.22, 0, 0, Math.PI / 2, 8);
-  cyl(mats.steel, 0.12, 0.12, 3.4, 71.2, D + 0.42, -0.55, 0, 0, Math.PI / 2, 10);
-
-  box(mats.cream, 0.35, 1.15, 1.6, 66.2, D + 1.0, 1.05);
-  cyl(mats.gauge, 0.12, 0.12, 0.05, 66.0, D + 1.25, 0.55, 0, 0, Math.PI / 2, 10);
-  cyl(mats.gauge, 0.12, 0.12, 0.05, 66.0, D + 1.25, 1.15, 0, 0, Math.PI / 2, 10);
-  box(mats.red, 0.16, 0.1, 0.16, 66.0, D + 0.85, 0.85);
-  box(mats.dark, 0.5, 0.7, 0.25, 66.4, D + 0.8, -1.2);
 }
 
 function stern() {

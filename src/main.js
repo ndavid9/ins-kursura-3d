@@ -88,7 +88,7 @@ async function boot() {
   setTimeout(() => loadEl.remove(), 500);
   document.body.dataset.mode = 'exterior';
   updateHud();
-  window.__KURSURA = { enter, leave, fps, scene, camera, orbit };
+  window.__KURSURA = { enter, leave, fps, scene, camera, orbit, renderer };
   const hash = location.hash.replace('#', '');
   if (hash === 'about') about.showModal();
   else if (COMPARTMENTS.some((c) => c.id === hash)) enter(hash);
